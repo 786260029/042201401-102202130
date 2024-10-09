@@ -25,11 +25,11 @@
             <ul>
                 <li><a href="#create-project">创建项目</a></li>
                 <li><a href="#join-project">加入项目</a></li>
-                <li><a href="#project-management" class="active">项目管理</a></li>
+                <li><a href="#project-management">项目管理</a></li>
             </ul>
         </aside>
         <section class="project-content">
-            <div id="create-project" style="display: none;">
+            <div id="create-project">
                 <h2>创建新项目</h2>
                 <form id="project-form">
                     <label for="project-name">项目名称:</label>
@@ -53,21 +53,60 @@
                     <button type="submit">创建项目</button>
                 </form>
             </div>
-            <div id="join-project" style="display: none;">
+            <div id="join-project">
                 <h2>加入项目</h2>
                 <div class="cards-container">
-                    <!-- 项目卡片将在这里动态生成 -->
+                    <!-- 动态生成的加入项目卡片 -->
+                    <div class="project-card">
+                        <h3>创新工坊</h3>
+                        <p>创建人：李刚</p>
+                        <p>项目描述：创新实验室和创业孵化器..</p>
+                        <div class="button-container">
+                            <button onclick="applyJoinProject('project1')">申请加入</button>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>时空穿梭</h3>
+                        <p>创建人：胡与</p>
+                        <p>项目描述：一个历史研究和考古项目..</p>
+                        <div class="button-container">
+                            <button onclick="applyJoinProject('project2')">申请加入</button>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>代码编织者</h3>
+                        <p>创建人：陈六</p>
+                        <p>项目描述：一个编程教育平台，提供..</p>
+                        <div class="button-container">
+                            <button onclick="applyJoinProject('project3')">申请加入</button>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>智能匹配项目</h3>
+                        <p>创建人：待定</p>
+                        <p>项目描述：智能匹配项目..</p>
+                        <div class="button-container">
+                            <button onclick="applyJoinProject('project4')">申请加入</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="project-management" style="display: block;">
+            <div id="project-management">
                 <h2>项目管理</h2>
                 <div class="project-section">
                     <h3>我加入的项目</h3>
-                    <div class="cards-container joined-projects" id="joined-projects"></div>
+                    <!-- 我加入的项目区域 -->
+                    <div id="joined-projects" class="project-card">
+                        <!-- 创新工坊项目卡片 -->
+                        
+                        <!-- 其他项目卡片可以继续添加在这里 -->
+                    </div>
                 </div>
                 <div class="project-section">
                     <h3>我创建的项目</h3>
-                    <div class="cards-container created-projects" id="created-projects"></div>
+                    <div class="cards-container created-projects" id="created-projects">
+                        <!-- 动态生成的我创建的项目卡片 -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -78,3 +117,4 @@
     <script src="项目.js"></script>
 </body>
 </html>
+
