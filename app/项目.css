@@ -1,0 +1,179 @@
+/* 页面整体样式 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* 导航栏样式 */
+header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO和搜索框样式 */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* 搜索框样式 */
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.search-box input[type="text"] {
+    padding: 5px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* 导航项目样式 */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+    color: #000;
+}
+
+/* 主要内容区域样式 */
+.main-container {
+    display: flex;
+    padding: 20px;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    width: 25%;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fafafa;
+    border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #e9e9e9;
+}
+
+.sidebar ul li a.active {
+    background-color: #d9d9d9;
+}
+
+/* 项目内容区域样式 */
+.project-content {
+    width: 75%;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* 项目卡片样式 */
+.project-card {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-actions {
+    display: flex;
+    align-items: center;
+}
+
+.project-actions button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-actions button:hover {
+    background-color: #e9e9e9;
+}
+
+/* 表单样式 */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="number"],
+form textarea {
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* 底部样式 */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}

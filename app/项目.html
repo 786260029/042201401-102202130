@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目 - ProjectPartner</title>
+    <link rel="stylesheet" href="项目.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ProjectPartner</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="首页.html">首页</a></li>
+                <li><a href="消息.html">消息</a></li>
+                <li><a href="项目.html" class="active">项目</a></li>
+                <li><a href="我的.html">我的</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main-container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#create-project">创建项目</a></li>
+                <li><a href="#join-project">加入项目</a></li>
+                <li><a href="#project-management" class="active">项目管理</a></li>
+            </ul>
+        </aside>
+        <section class="project-content">
+            <div id="create-project" style="display: none;">
+                <h2>创建新项目</h2>
+                <form id="project-form">
+                    <label for="project-name">项目名称:</label>
+                    <input type="text" id="project-name" name="project_name" required><br><br>
+
+                    <label for="start-date">开始日期:</label>
+                    <input type="date" id="start-date" name="start_date" required><br><br>
+
+                    <label for="recruit-people">招募人数:</label>
+                    <input type="number" id="recruit-people" name="recruit_people" required><br><br>
+
+                    <label for="project-direction">项目方向:</label>
+                    <input type="text" id="project-direction" name="project_direction" required><br><br>
+
+                    <label for="add-tags">添加标签:</label>
+                    <input type="text" id="add-tags" name="add_tags"><br><br>
+
+                    <label for="project-description">编辑正文内容:</label>
+                    <textarea id="project-description" name="project_description" rows="4" required></textarea><br><br>
+
+                    <button type="submit">创建项目</button>
+                </form>
+            </div>
+            <div id="join-project" style="display: none;">
+                <h2>加入项目</h2>
+                <div class="cards-container">
+                    <!-- 项目卡片将在这里动态生成 -->
+                </div>
+            </div>
+            <div id="project-management" style="display: block;">
+                <h2>项目管理</h2>
+                <div class="project-section">
+                    <h3>我加入的项目</h3>
+                    <div class="cards-container joined-projects" id="joined-projects"></div>
+                </div>
+                <div class="project-section">
+                    <h3>我创建的项目</h3>
+                    <div class="cards-container created-projects" id="created-projects"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 ProjectPartner. All rights reserved.</p>
+    </footer>
+    <script src="项目.js"></script>
+</body>
+</html>

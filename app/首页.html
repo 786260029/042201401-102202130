@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectPartner</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('pictures/IMG_1960.JPG'); /* 设置背景图片 */
+            background-size: cover; /* 覆盖整个页面 */
+            background-position: center; /* 居中显示 */
+            background-attachment: fixed; /* 背景图固定，不随滚动条滚动 */
+        }
+
+        header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin-right: 10px;
+        }
+
+        .logo input[type="text"] {
+            padding: 5px;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        nav ul li a.active {
+            font-weight: bold;
+            color: #000;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .welcome-message h2 {
+            color: #333;
+        }
+
+        .welcome-message p {
+            color: #666;
+        }
+        
+        .recommendations {
+            margin-top: 20px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: calc(25% - 20px);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ProjectPartner</h1>
+            <input type="text" placeholder="请输入搜索内容..">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="首页.html" class="active">首页</a></li>
+                <li><a href="消息.html">消息</a></li>
+                <li><a href="项目.html">项目</a></li>
+                <li><a href="我的.html">我的</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="welcome-message">
+            <h2>欢迎来到ProjectPartner</h2>
+            <p>在这里，你可以找到志同道合的项目伙伴，一起创造无限可能。</p>
+        </section>
+        <section class="recommendations">
+            <h2>推荐项目</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="pictures/IMG_1935.JPG" alt="智慧云联">
+                    <h3>智慧云联-云计算和物联网</h3>
+                    <p>云计算和物联网的结合，为企业提供智能解决方案。</p>
+                </div>
+                <div class="card">
+                    <img src="pictures/077ced4294e2dbca8e25b3fd3bbf9c22_750.png" alt="生物反应器创新中心">
+                    <h3>生物反应器创新中心-生物制药或生物能源</h3>
+                    <p>专注于生物反应器的创新研究，推动生物制药和生物能源的发展。</p>
+                </div>
+                <div class="card">
+                    <img src="pictures/393c22412fe964b95dde19d925c52273_750.png" alt="网络安全守护">
+                    <h3>网络安全守护-网络安全和防护</h3>
+                    <p>提供全面的网络安全解决方案，保护企业数据安全。</p>
+                </div>
+                <div class="card">
+                    <img src="pictures/IMG_1940.JPG" alt="深度学习实验室">
+                    <h3>深度学习实验室-深度学习和机器视觉</h3>
+                    <p>专注于深度学习和机器视觉的研究，推动人工智能技术的发展。</p>
+                </div>
+            </div>
+        </section>
+        <!-- 其他内容 -->
+    </main>
+    <footer>
+        <p>&copy; 2024 ProjectPartner. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
