@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            background-image: url('pictures/IMG_1929.JPG'); /* 确保图片路径正确 */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* 背景图固定，不随滚动条滚动 */
+            overflow: auto; /* 确保页面内容可以滚动 */
+        }
+        .register-container {
+            background-color: white;
+            max-width: 350px;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form div {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 20px); /* Full width minus padding */
+        }
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .register-button {
+            background-color: #007bff; /* 改为蓝色 */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color .3s;
+            margin-top: 10px;
+            padding: 12px 0;
+        }
+        .register-button:hover {
+            background-color: #0056b3;
+        }
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .login-link:hover {
+            text-decoration: underline;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>注册</h2>
+        <form id="registrationForm">
+            <div>
+                <label>身份:</label>
+                <select name="identity" id="identitySelect" onchange="updateFormFields()">
+                    <option value="student">学生</option>
+                    <option value="teacher">教师</option>
+                </select>
+            </div>
+            <div>
+                <label>姓名:</label>
+                <input type="text" name="name" required>
+            </div>
+            <div id="studentNumberDiv">
+                <label>学号:</label>
+                <input type="text" name="student_number">
+            </div>
+            <div id="teacherNumberDiv" class="hidden">
+                <label>工号:</label>
+                <input type="text" name="teacher_number">
+            </div>
+            <div>
+                <label>性别:</label>
+                <select name="gender">
+                    <option value="male">男</option>
+                    <option value="female">女</option>
+                </select>
+            </div>
+            <div id="majorDiv">
+                <label>专业:</label>
+                <input type="text" name="major">
+            </div>
+            <div id="researchDiv" class="hidden">
+                <label>研究方向:</label>
+                <input type="text" name="research">
+            </div>
+            <div id="gradeDiv">
+                <label>年级:</label>
+                <select name="grade">
+                    <option value="freshman">大一</option>
+                    <option value="sophomore">大二</option>
+                    <option value="junior">大三</option>
+                    <option value="senior">大四</option>
+                    <option value="graduate">研究生</option>
+                </select>
+            </div>
+            <div>
+                <label>邮箱:</label>
+                <input type="email" name="email" required>
+            </div>
+            <div>
+                <label>手机号:</label>
+                <input type="tel" name="phone" required>
+            </div>
+            <div>
+                <label>验证码:</label>
+                <input type="text" name="verification_code">
+                <button type="button">获取验证码</button>
+            </div>
+            <div>
+                <label>密码:</label>
+                <input type="password" name="password" required>
+            </div>
+            <div>
+                <label>确认密码:</label>
+                <input type="password" name="confirm_password" required>
+            </div>
+            <input type="submit" value="注册" class="register-button">
+        </form>
+        <a href="登录.html" class="login-link">已有账号?去登录</a>
+    </div>
+
+    <script>
+        function updateFormFields() {
+            var identity = document.getElementById('identitySelect').value;
+            var studentNumberDiv = document.getElementById('studentNumberDiv');
+            var teacherNumberDiv = document.getElementById('teacherNumberDiv');
+            var majorDiv = document.getElementById('majorDiv');
+            var researchDiv = document.getElementById('researchDiv');
+
+            if (identity === 'student') {
+                studentNumberDiv.classList.remove('hidden');
+                teacherNumberDiv.classList.add('hidden');
+                majorDiv.classList.remove('hidden');
+                researchDiv.classList.add('hidden');
+            } else if (identity === 'teacher') {
+                studentNumberDiv.classList.add('hidden');
+                teacherNumberDiv.classList.remove('hidden');
+                majorDiv.classList.add('hidden');
+                researchDiv.classList.remove('hidden');
+            }
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+
+            var identity = document.getElementById('identitySelect').value;
+            var studentNumber = document.getElementById('studentNumberDiv').getElementsByTagName('input')[0].value.trim();
+            var teacherNumber = document.getElementById('teacherNumberDiv').getElementsByTagName('input')[0].value.trim();
+
+            if ((identity === 'student' && studentNumber !== '') || (identity === 'teacher' && teacherNumber !== '')) {
+                // 如果用户填写了对应身份的信息，则跳转到登录页面
+                window.location.href = '登录.html';
+            } else {
+                alert('请填写完整您的信息。');
+            }
+        });
+
+        // 初始化表单
+        document.addEventListener('DOMContentLoaded', function() {
+            updateFormFields();
+        });
+    </script>
+</body>
+</html>

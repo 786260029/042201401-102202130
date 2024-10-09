@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的 - ProjectPartner</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        nav ul li a.active {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .content-container {
+            padding-top: 80px; /* 为固定头部留出空间 */
+            background-image: url('./pictures/banner.JPG'); /* 背景图片 */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh; /* 至少和视口一样高 */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .profile-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 20px);
+        }
+
+        .button-group {
+            text-align: right; 
+            margin-top: 20px;
+        }
+
+        .button-group button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .button-group button:last-child {
+            margin-left: 0;
+        }
+
+        .button-group button:hover {
+            background-color: #0056b3;
+        }
+
+        .gray-button {
+            background-color: #ccc;
+        }
+
+        .gray-button:hover {
+            background-color: #bbb;
+        }
+
+        .logout-button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .logout-button:hover {
+            background-color: #c82333;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ProjectPartner</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="首页.html">首页</a></li>
+                <li><a href="消息.html">消息</a></li>
+                <li><a href="项目.html">项目</a></li>
+                <li><a href="我的.html" class="active">我的</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content-container">
+        <div class="profile-container">
+            <h2>个人资料</h2>
+            <form id="profileForm">
+                <div>
+                    <label>姓名:</label>
+                    <input type="text" id="name" disabled>
+                </div>
+                <div>
+                    <label>专业:</label>
+                    <input type="text" id="major" disabled>
+                </div>
+                <div>
+                    <label>学号:</label>
+                    <input type="text" id="studentId" disabled>
+                </div>
+                <div>
+                    <label>联系方式:</label>
+                    <input type="text" id="contact" disabled>
+                </div>
+                <div>
+                    <label>邮箱:</label>
+                    <input type="email" id="email" disabled>
+                </div>
+                <div>
+                    <label>感兴趣的方向:</label>
+                    <input type="text" id="interests" disabled>
+                </div>
+                <div>
+                    <label>技能:</label>
+                    <input type="text" id="skills" disabled>
+                </div>
+                <div>
+                    <label>个人简介:</label>
+                    <textarea id="bio" rows="4" disabled></textarea>
+                </div>
+                <div class="button-group">
+                    <button type="button" onclick="editProfile()">编辑</button>
+                    <button type="button" onclick="submitProfile()">提交</button>
+                    <button type="button" class="gray-button" onclick="logout()">退出</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 ProjectPartner. All rights reserved.</p>
+    </footer>
+    <script>
+        let isEditing = false;
+
+        function editProfile() {
+            const inputs = document.getElementById('profileForm').querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.disabled = false;
+            });
+            isEditing = true;
+        }
+
+        function submitProfile() {
+            const form = document.getElementById('profileForm');
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                const value = input.value;
+                localStorage.setItem(input.id, value);  // 保存数据到LocalStorage
+                input.disabled = true;
+            });
+            alert('Profile updated!');
+            isEditing = false;
+        }
+
+        function logout() {
+            localStorage.clear(); // 清除所有数据
+            window.location.href = '登录.html'; // Redirect to login page
+        }
+
+        // Initialize with disabled inputs and load data from LocalStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.getElementById('profileForm').querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                const value = localStorage.getItem(input.id);
+                if (value) {
+                    input.value = value;
+                    input.disabled = true;
+                } else {
+                    input.disabled = true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
